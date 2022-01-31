@@ -1,7 +1,8 @@
 # Home assiment - Flickr images gallery
 
-![preview](https://i.ibb.co/zH7Xzkg/Screenshot-2022-01-31-124547.png)
-![preview](https://i.ibb.co/v3kP5Kp/Screenshot-2022-01-31-125412.png)
+![preview](https://i.ibb.co/M5GcmXH/Screenshot-2022-01-31-124547.png)
+
+![preview](https://i.ibb.co/GWR2wby/Screenshot-2022-01-31-125412.png)
 
 I was given a homework assignment that included the following tasks:
 Flickr Gallery is a client for the photo-sharing site Flickr. It should fetch and display the most recent public photos uploaded to Flickr. 
