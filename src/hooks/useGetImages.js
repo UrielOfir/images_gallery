@@ -37,7 +37,6 @@ function useGetImages(pageNum) {
         setIsLoading(false);
       })
       .catch((err) => {
-        if (axios.isCancel(err)) return;
         setError(err);
       });
 
