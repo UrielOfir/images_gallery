@@ -8,18 +8,21 @@ function useGetImages(pageNum) {
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
-    const CancelToken = axios.CancelToken;
-    let cancel;
-
     setIsLoading(true);
     setError(false);
 
-    let urlString = `https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&extras=url_s&api_key=aabca25d8cd75f676d3a74a72dcebf21&format=json&nojsoncallback=1`;
-    urlString += `&page=${pageNum}`;
-    axios
-      .get(urlString, {
-        cancelToken: new CancelToken((c) => (cancel = c)),
-      })
+    axios({
+      method: "GET",
+      url: `https://api.flickr.com/services/rest/`,
+      params: {
+        method: "flickr.photos.getRecent",
+        extras: "url_s",
+        api_key: "aabca25d8cd75f676d3a74a72dcebf21",
+        format: "json",
+        nojsoncallback: "1",
+        page: pageNum,
+      },
+    })
       .then((res) => {
         setImages((prev) => {
           return [
@@ -38,7 +41,7 @@ function useGetImages(pageNum) {
         setError(err);
       });
 
-    return () => cancel();
+    return;
   }, [pageNum]);
 
   return { isLoading, error, images, hasMore };
