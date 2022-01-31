@@ -23,7 +23,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Images Gallery</h1>
+      <h1>Gallery</h1>
       <div className="images-container">
         {images.map((image, i) => {
           if (images.length === i + 1) {
