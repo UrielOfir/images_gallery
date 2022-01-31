@@ -1,10 +1,17 @@
 import "./App.css";
 import React, { useState, useRef, useCallback } from "react";
 import useGetImages from "./hooks/useGetImages";
+import { useNavigate } from "react-router-dom";
 
 export default function App() {
   const [pageNum, setPageNum] = useState(1);
   const { isLoading, error, images, hasMore } = useGetImages(pageNum);
+
+  const navigate = useNavigate();
+  const routeChange = (imgUrl) => {
+    let path = `ImageView/`;
+    navigate(path, { state: { imgUrl } });
+  };
 
   const observer = useRef();
   const lastBookElementRef = useCallback(
@@ -28,13 +35,22 @@ export default function App() {
         {images.map((image, i) => {
           if (images.length === i + 1) {
             return (
-              <div className="img-holder" key={i} ref={lastBookElementRef}>
+              <div
+                className="img-holder"
+                key={i}
+                ref={lastBookElementRef}
+                onClick={() => routeChange(image)}
+              >
                 <img src={image} alt="" />
               </div>
             );
           } else {
             return (
-              <div className="img-holder" key={i}>
+              <div
+                className="img-holder"
+                key={i}
+                onClick={() => routeChange(image)}
+              >
                 <img src={image} alt="" />
               </div>
             );

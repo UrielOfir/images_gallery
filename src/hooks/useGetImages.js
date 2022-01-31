@@ -21,7 +21,6 @@ function useGetImages(pageNum) {
         cancelToken: new CancelToken((c) => (cancel = c)),
       })
       .then((res) => {
-        console.log(res.data.photos);
         setImages((prev) => {
           return [
             ...new Set([
