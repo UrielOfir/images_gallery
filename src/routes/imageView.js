@@ -1,12 +1,13 @@
-import {Link, useLocation} from 'react-router-dom';
-
+import { Link, useLocation } from "react-router-dom";
 
 export default function ImageView(props) {
-    const imgUrl = useLocation().state.imgUrl;
-    return (
-      <div>
-        <h2><Link to="/">back</Link></h2>
-        <img src={imgUrl} alt="" />
-      </div>
-    );
-  }
+  const imgUrl = useLocation().state.imgUrl;
+  return (
+    <div>
+      <h1>
+        <Link to="/">&#60;&#60; Back</Link>
+      </h1>
+      <img src={imgUrl} alt="" />
+    </div>
+  );
+}
